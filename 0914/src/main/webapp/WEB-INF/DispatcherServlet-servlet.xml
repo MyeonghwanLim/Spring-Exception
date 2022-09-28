@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<context:component-scan base-package="com.lim.biz" />
+	
+	<!-- 예외페이지 설정 
+	<mvc:annotation-driven />
+	-->
+	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+      <property name="exceptionMappings">
+         <props>
+            <prop key="java.lan.NullPointerException">error/error.jsp</prop>
+            <prop key="java.lang.ArithmeticException">error/error.jsp</prop>
+            <prop key="java.lang.Exception">error/error.jsp</prop>
+         </props>
+      </property>
+   </bean>
+	<!-- 파일 업로드 관련 설정 -->
+		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+			<property name="maxUploadSize" value="-1" />
+		</bean>
+	
+	<!-- 
+	HM 등록
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login.do">login</prop>
+				<prop key="/main.do">main</prop>
+				<prop key="/logout.do">logout</prop>
+				<prop key="/signin.do">signin</prop>
+				<prop key="/mypage.do">mypage</prop>
+				<prop key="/update.do">update</prop>
+				<prop key="/delete.do">delete</prop>
+				<prop key="/insert.do">insert</prop>
+			</props>
+		</property>
+	</bean>
+	
+	Controller
+	
+	<bean id="login" class="com.lim.biz.controller.LoginController" />
+	<bean id="logout" class="com.lim.biz.controller.LogoutController" />
+	<bean id="signin" class="com.lim.biz.controller.SigninController" />
+	<bean id="main" class="com.lim.biz.controller.MainController" />
+	<bean id="mypage" class="com.lim.biz.controller.MypageController" />
+	<bean id="update" class="com.lim.biz.controller.UpdateController" />
+	<bean id="delete" class="com.lim.biz.controller.DeleteController" />
+	<bean id="insert" class="com.lim.biz.controller.InsertController" />
+	
+	
+	ViewResolver
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean> -->
+
+
+	
+
+	
+
+
+	
+</beans>
